@@ -8,7 +8,7 @@ export function AuditFunnel({selectedCategory, selectedDateRange}) {
   const [funnelData,setFunnelData] = useState([]);
   useEffect(()=>{
     const fetchData_1 = async () =>{
-      const data = await fetch('http://localhost:5000/getFunnelData',{
+      const data = await fetch('https://quality-dashboard.onrender.com/getFunnelData',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({selectedCategory,            
