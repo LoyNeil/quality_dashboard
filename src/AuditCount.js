@@ -14,8 +14,8 @@ export function AuditCount({selectedCategory, selectedDateRange}) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             selectedCategory,
-            startDate: selectedDateRange ? selectedDateRange[0].toISOString() : null,
-            endDate: selectedDateRange ? selectedDateRange[1].toISOString() : null,
+            startDate: selectedDateRange && selectedDateRange[0] ? selectedDateRange[0].toISOString() : null,
+            endDate: selectedDateRange && selectedDateRange[1] ? selectedDateRange[1].toISOString() : null,
           }),
         });
         const data_res = await response.json();
