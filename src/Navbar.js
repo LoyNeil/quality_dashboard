@@ -11,8 +11,8 @@ import { useState,useEffect } from 'react';
 
 export function NavBar() {
 
-  const [postSalesDropDown,setPostSalesDropDown] = useState(false);
-  const [preSalesDropDown, setPreSalesDropDown] = useState(false);
+  // const [postSalesDropDown,setPostSalesDropDown] = useState(false);
+  // const [preSalesDropDown, setPreSalesDropDown] = useState(false);
   const [fopsDropDown,setFopsDropDown] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedDateRange, setSelectedDateRange] = useState([null, null])
@@ -25,13 +25,13 @@ export function NavBar() {
     setSelectedDateRange(dates);
   }
 
-  const toggle = () => {
-    setPostSalesDropDown(!postSalesDropDown);
-  }
+  // const toggle = () => {
+  //   setPostSalesDropDown(!postSalesDropDown);
+  // }
 
-  const preToggle = () =>{
-    setPreSalesDropDown(!preSalesDropDown);
-  }
+  // const preToggle = () =>{
+  //   setPreSalesDropDown(!preSalesDropDown);
+  // }
 
   const fopsToggle = () => {
     setFopsDropDown(!fopsDropDown);
