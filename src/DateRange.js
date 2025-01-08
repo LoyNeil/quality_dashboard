@@ -39,7 +39,7 @@ export function DateeRange({onDateRangeChange}) {
       onDateRangeChange(null);
     }
   };
-
+  console.log("Selected Date:", selectedDate);// to tackle the deployment
   return (
     <Space direction="vertical">
       <DatePicker.RangePicker
