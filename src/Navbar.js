@@ -54,7 +54,7 @@ export function NavBar() {
     return () => {
       document.removeEventListener('click', outsideclick);
     };
-  }, [postSalesDropDown,preSalesDropDown,fopsDropDown]);
+  }, [fopsDropDown]);
   
   return (
     <div className="mainbar">
