@@ -40,13 +40,13 @@ export function NavBar() {
   useEffect(() => {
     const outsideclick = (event) => {
       if (!event.target.closest('.postsales,.presales,.Fops')) {
-        setPostSalesDropDown(false);
-        setPreSalesDropDown(false);
+        // setPostSalesDropDown(false);
+        // setPreSalesDropDown(false);
         setFopsDropDown(false);
       }
     };
 
-    if(postSalesDropDown || preSalesDropDown || fopsDropDown) {
+    if(fopsDropDown) {
     // Add the event listener
     document.addEventListener('click', outsideclick);
     }
