@@ -15,7 +15,7 @@ export function AuditTable({selectedCategory, selectedDateRange}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/getAuditData',{
+        const response = await fetch('https://quality-dashboard.onrender.com/getAuditData',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({selectedCategory,
