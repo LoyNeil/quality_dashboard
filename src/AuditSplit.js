@@ -9,7 +9,7 @@ export function AuditSplit({selectedCategory, selectedDateRange}) {
   useEffect(() => {
     async function fetchAuditSplit() {
       try {
-        const response = await fetch ('http://localhost:5000/getAuditSplit',{
+        const response = await fetch ('https://quality-dashboard.onrender.com/getAuditSplit',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({selectedCategory,
