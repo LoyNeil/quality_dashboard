@@ -1,0 +1,15 @@
+.footer {
+    background-color: #1e1e2f; /* Dark blue-gray background */
+    color: #f0f0f0; /* Light gray text for good contrast */
+    text-align: center; /* Center align the text */
+    padding: 20px 0; /* Add vertical padding */
+    font-size: 16px; /* Adjust font size for readability */
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
+  }
+  
+  .footer p {
+    margin: 0; /* Remove default margins */
+    font-family: 'Arial', sans-serif; /* Choose a clean font */
+    letter-spacing: 0.5px; /* Add slight letter spacing */
+  }
+  

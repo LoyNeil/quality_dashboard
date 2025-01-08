@@ -1,0 +1,12 @@
+.trenddata {
+    height: 150px;
+    width: 900px;
+  }
+  
+  @media screen and (max-width: 1366px) {
+    .trenddata {
+      height: 150px;
+      width: 700px;
+    }
+  }
+  
