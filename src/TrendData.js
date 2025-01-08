@@ -10,7 +10,7 @@ export function TrendData({selectedCategory,selectedDateRange}) {
   useEffect(()=>{
     const fetchedData = async()=>{
       try {
-        const data = await fetch('http://localhost:5000/getTrendData',{
+        const data = await fetch('https://quality-dashboard.onrender.com/getTrendData',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body: JSON.stringify({
