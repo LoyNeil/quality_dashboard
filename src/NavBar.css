@@ -7,6 +7,7 @@
     font-size: 20px;
     flex-wrap: wrap;
     margin-top: 15px;
+    cursor: pointer;
   }
   
   .submenu > li {
@@ -19,11 +20,13 @@
     flex-direction: column;
     margin-top: 2px;
     font-size: 15px;
+    cursor: pointer;
   }
   
   .submenu > li:hover {
     background-color: #a91861;
     font-weight: bold;
+    cursor: pointer;
   }
   .submenu2 > li {
     color: #dfd228;
@@ -35,11 +38,13 @@
     flex-direction: column;
     margin-top: 2px;
     font-size: 15px;
+    cursor: pointer;
   }
   
   .submenu2 > li:hover {
     background-color: #a91861;
     font-weight: bold;
+    cursor: pointer;
   }
   
   .submenu3 > li {
@@ -52,10 +57,12 @@
     flex-direction: column;
     margin-top: 2px;
     font-size: 15px;
+    cursor: pointer;
   }
   .submenu3 > li:hover {
     background-color: #a91861;
     font-weight: bold;
+    cursor: pointer;
   }
   .speedgauage {
     display: grid;
