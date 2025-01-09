@@ -9,8 +9,10 @@ export function DateeRange({onDateRangeChange}) {
 
   // Helper function for disabled dates
   const disabledDate = (current) => {
+
+    const currentDate = dayjs(current);
     // Disables future dates
-    return current && current > dayjs().endOf('day');
+    return current.isSame(dayjs(),'day') || current.isAfter(dayjs());
   };
 
   // State to manage selected date range
