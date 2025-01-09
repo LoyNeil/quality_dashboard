@@ -12,7 +12,7 @@ export function DateeRange({onDateRangeChange}) {
 
     const currentDate = dayjs(current);
     // Disables future dates
-    return current.isSame(dayjs(),'day') || current.isAfter(dayjs());
+    return currentDate.isSame(dayjs(),'day') || currentDate.isAfter(dayjs());
   };
 
   // State to manage selected date range
