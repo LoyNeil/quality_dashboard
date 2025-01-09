@@ -8,6 +8,7 @@ import { AuditTable } from './AuditTable';
 import { DateeRange } from './DateRange';
 import { Footer } from './Footer';
 import { useState,useEffect } from 'react';
+import dayjs from 'dayjs';
 
 export function NavBar() {
 
@@ -15,7 +16,8 @@ export function NavBar() {
   // const [preSalesDropDown, setPreSalesDropDown] = useState(false);
   const [fopsDropDown,setFopsDropDown] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedDateRange, setSelectedDateRange] = useState([null, null])
+  const [selectedDateRange, setSelectedDateRange] = useState([dayjs().subtract(1, 'days'),
+    dayjs().subtract(1, 'days')])
 
   const handleSelection = (category) => {
     setSelectedCategory(category);
