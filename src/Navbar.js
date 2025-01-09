@@ -65,8 +65,14 @@ export function NavBar() {
           Sales Report
           {fopsDropDown ? (
             <ul className="submenu3">
-              <li onClick={()=>handleSelection('BEPC')}>Car</li>
-              <li onClick={()=>handleSelection('Grooming')}>Bike</li>
+              <li onClick={()=>handleSelection('BEPC')}
+            className={selectedCategory === 'BEPC' ? 'selected':''}>
+            Car {selectedCategory === 'BEPC' && '✔'}
+            </li>
+              <li onClick={()=>handleSelection('Grooming')}
+              className = {selectedCategory === 'Grooming' ? 'selected':''}>
+                Bike {selectedCategory === 'Grooming' && '✔'}
+              </li>
             </ul>
           ):null}
         </li>
