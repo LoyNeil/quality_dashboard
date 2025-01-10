@@ -67,7 +67,7 @@ export function NavBar() {
       setLoading(false);
     },2000);
     return () => clearTimeout(timer);
-  },[selectedCategory]);
+  },[]);
   
   return (
     <div className="mainbar">
