@@ -65,9 +65,9 @@ export function NavBar() {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    },5000);
+    },2000);
     return () => clearTimeout(timer);
-  },[selectedCategory,selectedDateRange]);
+  },[selectedCategory]);
   
   return (
     <div className="mainbar">
