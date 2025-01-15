@@ -6,7 +6,6 @@ import { AuditFunnel } from './AuditFunnel';
 import { AuditSplit } from './AuditSplit';
 import { AuditTable } from './AuditTable';
 import { DateeRange } from './DateRange';
-import { Footer } from './Footer';
 import { useState,useEffect } from 'react';
 import dayjs from 'dayjs';
 import { ColorRing } from 'react-loader-spinner';
@@ -142,7 +141,6 @@ export function NavBar() {
         </>
     )}
     <div className="footer">
-      <Footer />
     </div>
     </div>
   );
