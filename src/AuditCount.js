@@ -9,7 +9,7 @@ export function AuditCount({selectedCategory, selectedDateRange,setGlobalLoading
   useEffect(() => {
     const fetchAuditCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/getAuditCount', {
+        const response = await fetch('https://quality-dashboard.onrender.com/getAuditCount', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
