@@ -1,0 +1,12 @@
+.split {
+    height: '350px';
+    width: '600px';
+  }
+  
+  @media screen and (max-width: 1366px) {
+    .split {
+      height: '350px';
+      width: '400px';
+    }
+  }
+  

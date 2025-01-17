@@ -1,0 +1,309 @@
+.mainmenu {
+  color: #29df35;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.submenu > li {
+  color: #dfd228;
+  list-style-type: none;
+  padding: 2px;
+  margin-left: -40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.submenu > li:hover {
+  background-color: #a91861;
+  font-weight: bold;
+  cursor: pointer;
+}
+.submenu2 > li {
+  color: #dfd228;
+  list-style-type: none;
+  padding: 2px;
+  margin-left: -40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.submenu2 > li:hover {
+  background-color: #a91861;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submenu3 > li {
+  color: #dfd228;
+  list-style-type: none;
+  padding: 2px;
+  margin-left: -40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.submenu3 > li:hover {
+  background-color: #a91861;
+  font-weight: bold;
+  cursor: pointer;
+}
+.speedgauage {
+  display: grid;
+  grid-template-columns: 100px 700px 1500px; /* Adjust column widths for closer fit */
+  grid-template-rows: 300px 350px 600px;
+  height: 100vh;
+  grid-gap: 10px; /* Adjust this value as needed for smaller gaps */
+  padding: 0;
+  margin-top: 20px;
+}
+
+.chart1 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  height: 300px;
+  width: 600px;
+  background-color: #141d24;
+  position: relative;
+  margin: 0;
+}
+
+.text {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+}
+
+.trend {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  height: 300px;
+  width: 1000px;
+  background-color: #141d24;
+  position: relative;
+  margin-left: -100px;
+}
+
+.funnel {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  height: 350px;
+  width: 700px;
+  background-color: #141d24;
+  margin-top: 0;
+}
+
+.split {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  width: 900px;
+  height: 350px;
+  background-color: #141d24;
+  position: relative;
+  margin: 0;
+}
+.table {
+  grid-column: 2 / 6;
+  grid-row: 3 / 4;
+  margin-top: 0px;
+  width: 1610px;
+}
+
+.range {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 180px;
+}
+
+.bepc {
+  grid-column: 2/6;
+  grid-row: 4/5;
+  height: 100px;
+  margin-top: 0px;
+  width: 1610px;
+}
+
+.brand {
+  grid-column: 2 / 3;
+  grid-row: 5 / 6;
+  width: 790px;
+  height: 400px;
+  margin-top: 5px;
+}
+
+.experience {
+  grid-column: 3 / 6;
+  grid-row: 5 / 6;
+  width: 810px;
+  height: 400px;
+  margin-top: 5px;
+  margin-left: 90px;
+}
+
+.process {
+  grid-column: 2 / 3;
+  grid-row: 6 / 7;
+  width: 790px;
+  height: 400px;
+  margin-top: 40px;
+}
+
+.compliance {
+  grid-column: 3 / 6;
+  grid-row: 6 / 7;
+  width: 810px;
+  height: 400px;
+  margin-left: 90px;
+  margin-top: 40px;
+}
+
+.loader {
+  position: fixed; /* Overlay the loader over everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Dimmed background */
+  z-index: 9999; /* Ensures it stays on top */
+}
+.footer{
+  margin-top: 350px;
+}
+/* Media Query for Laptop Screens (1366x768) */
+@media screen and (max-width: 1366px) {
+  .speedgauage {
+    display: grid;
+    grid-template-columns: 100px 400px 500px; /* Adjust column widths for closer fit */
+    grid-template-rows: auto;
+    height: 100vh;
+    grid-gap: 20px; /* Adjust this value as needed for smaller gaps */
+    padding: 0;
+  }
+
+  .chart1 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: 300px;
+    width: 300px;
+    background-color: #141d24;
+    position: relative;
+    margin: 0;
+  }
+
+  .text {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+  }
+
+  .trend {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    height: 300px;
+    width: 750px;
+    background-color: #141d24;
+    position: relative;
+    margin-left: -100px;
+  }
+
+  .funnel {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    height: 350px;
+    width: 400px;
+    background-color: #141d24;
+    margin: 0;
+  }
+
+  .split {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    width: 650px;
+    height: 350px;
+    background-color: #141d24;
+    position: relative;
+  }
+
+  .table {
+    grid-column: 2 / 6;
+    grid-row: 3 / 4;
+    width: 1070px;
+    height: 600px;
+    margin-top: 0 auto;
+  }
+
+  .bepc {
+    grid-column: 2/6;
+    grid-row: 4/5;
+    margin-top: 0px;
+    width: 1070px;
+    height:100px
+  }
+
+  .brand {
+    grid-column: 2 / 3;
+    grid-row: 5 / 5;
+    width: 535px;
+    height: 400px;
+  }
+  .experience {
+    grid-column: 3 / 6;
+    grid-row: 5 / 6;
+    width: 535px;
+    height: 400px;
+    margin-top: 0px;
+    margin-left: 120px;
+  }
+  .process {
+    grid-column: 2 / 3;
+    grid-row: 6 / 7;
+    width: 535px;
+    height: 400px;
+    margin-top: 30px;
+  }
+  .compliance {
+    grid-column: 3 / 6;
+    grid-row: 6 / 7;
+    width: 535px;
+    height: 400px;
+    margin-left: 120px;
+    margin-top: 30px;
+  }
+  .loader {
+    position: fixed; /* Overlay the loader over everything */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Dimmed background */
+    z-index: 9999; /* Ensures it stays on top */
+  }
+}
