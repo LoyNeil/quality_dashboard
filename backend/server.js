@@ -3,15 +3,10 @@ const axios = require("axios");
 const { google } = require("googleapis");
 const path = require("path");
 const dayjs = require("dayjs");
-const utc = require("dayjs/plugin/utc");
-const timezone = require("dayjs/plugin/timezone");
 const isBetween = require("dayjs/plugin/isBetween");
 require("dotenv").config();
 
 
-dayjs.extend(isBetween);
-dayjs.extend(utc);
-dayjs.extend(timezone);
 dayjs.extend(isBetween);
 const app = express();
 const port = 5000;
@@ -48,11 +43,9 @@ app.post("/getAuditCount", async (req, res) => {
   const { selectedCategory, startDate, endDate } = req.body;
 
   const start = startDate
-    ? dayjs(startDate).tz("Asia/Kolkata").startOf("day")
+    ? dayjs(startDate, "YYYY-MM-DD").startOf("day")
     : null;
-  const end = endDate
-    ? dayjs(endDate).tz("Asia/Kolkata").endOf("day")
-    : null;
+  const end = endDate ? dayjs(endDate, "YYYY-MM-DD").endOf("day") : null;
 
   if (!start || !end) {
     return res.status(400).json({ error: "Invalid date range" });
@@ -76,8 +69,8 @@ app.post("/getAuditCount", async (req, res) => {
         const date =
           rawDate &&
           (dayjs(rawDate, "MM/DD/YYYY", true).isValid()
-            ? dayjs(rawDate, "MM/DD/YYYY").tz("Asia/Kolkata")
-            : dayjs(rawDate, "YYYY-MM-DD", true).tz("Asia/Kolkata")); // Assuming column D (index 3) contains dates
+            ? dayjs(rawDate, "MM/DD/YYYY")
+            : dayjs(rawDate, "YYYY-MM-DD", true)); // Assuming column D (index 3) contains dates
         const value = parseFloat(row[0]); // Assuming column A (index 0) contains the value
 
         if (date && value && date.isBetween(start, end, null, "[]")) {
