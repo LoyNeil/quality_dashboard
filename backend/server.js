@@ -16,7 +16,7 @@ const port = 5000;
 
 // Enable CORS for React frontend
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // React app URL
+  res.header("Access-Control-Allow-Origin", "https://qualitydashboard.netlify.app"); // React app URL
   res.header("Access-Control-Allow-Methods", "GET");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
