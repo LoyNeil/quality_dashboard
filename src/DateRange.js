@@ -3,7 +3,6 @@ import './DateRange.css';
 import { DatePicker, Space, message } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import moment from 'moment';
 
 export function DateeRange({onDateRangeChange}) {
   dayjs.extend(customParseFormat);
