@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./NavBar.css";
 import { AuditCount } from "./AuditCount";
 import { TrendData } from "./TrendData";
@@ -10,6 +10,7 @@ import { Footer } from "./Footer";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import { ColorRing } from 'react-loader-spinner';
+import { LoadingContext } from "./ContextLoader";
 
 export function NavBar() {
   // const [postSalesDropDown,setPostSalesDropDown] = useState(false);
@@ -21,10 +22,12 @@ export function NavBar() {
     dayjs().subtract(1, "days"),
   ]);
 
-  const [loading, setLoading] = useState(false);
+  const {isLoading, setIsLoading} = useContext(LoadingContext);
+
 
   const handleSelection = (category) => {
     setSelectedCategory(category);
+    fetchData();
   };
 
   const handleDateRangeChange = (dates) => {
@@ -62,14 +65,17 @@ export function NavBar() {
     };
   }, [fopsDropDown]);
 
-  useEffect(() => {
-    setLoading(true);
+  const fetchData = () => {
+    setIsLoading(true);
+    // Simulating API call with timeout
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Replace with actual API fetch call
+  };
 
-    const timer = setTimeout(() => {
-      setLoading(false);
-    },5000);
-    return () => clearTimeout(timer);
-  },[]);
+  useEffect(() => {
+    fetchData(); // Fetch data initially on component mount
+  }, []);
 
   return (
     <div className="mainbar">
@@ -92,7 +98,7 @@ export function NavBar() {
           ) : null}
         </li>
       </ul>
-      {loading ? (
+      {isLoading ? (
           <div className="loader">
             <ColorRing
                 visible={true}
