@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react';
 import ReactECharts from 'echarts-for-react';
 import './AuditCount.css';
 import dayjs from 'dayjs';
+import {useLoader} from './LoaderContext.js';
 
-export function AuditCount({selectedCategory, selectedDateRange,setGlobalLoading }) {
+export function AuditCount({selectedCategory, selectedDateRange}) {
+  console.log("auditCount",selectedCategory, selectedDateRange);
   const [auditCount, setAuditCount] = useState(0);
+
+  const { toggleLoading } = useLoader();
 
   useEffect(() => {
     const fetchAuditCount = async () => {
       try {
-        const response = await fetch('https://quality-dashboard.onrender.com/getAuditCount', {
+        if (!selectedDateRange || selectedDateRange[0] === selectedDateRange[1]) return;
+        toggleLoading(true);
+        const response = await fetch('http://localhost:5000/getAuditCount', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -27,11 +33,15 @@ export function AuditCount({selectedCategory, selectedDateRange,setGlobalLoading
       } catch (error) {
         console.error('Error fetching data:', error);
         setAuditCount(0);
+      } finally {
+        toggleLoading(false);
       }
     };
   
+    if (selectedDateRange[0] && selectedDateRange[1] && selectedDateRange[0] !== selectedDateRange[1]) {
     fetchAuditCount();
-  }, [selectedCategory,selectedDateRange]);
+    }
+  }, [selectedCategory,selectedDateRange,toggleLoading]);
 
   const options = {
     tooltip: {
