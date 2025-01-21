@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { NavBar } from './Navbar';
 import { LoadingProfile } from './LoaderContext.js';
+import Loader from './Loader';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
         <LoadingProfile>
           <h1>Quality Dashboard</h1>
           <NavBar />
+          <Loader />
         </LoadingProfile>
       </div>
   );
