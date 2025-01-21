@@ -9,7 +9,7 @@ import { DateeRange } from "./DateRange";
 import { Footer } from "./Footer";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
-import { ColorRing } from 'react-loader-spinner';
+import Loader from "./Loader";
 
 export function NavBar() {
   // const [postSalesDropDown,setPostSalesDropDown] = useState(false);
@@ -21,7 +21,7 @@ export function NavBar() {
     dayjs().subtract(1, "days"),
   ]);
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const handleSelection = (category) => {
     setSelectedCategory(category);
@@ -62,14 +62,14 @@ export function NavBar() {
     };
   }, [fopsDropDown]);
 
-  useEffect(() => {
-    setLoading(true);
+  // useEffect(() => {
+  //   setLoading(true);
 
-    const timer = setTimeout(() => {
-      setLoading(false);
-    },5000);
-    return () => clearTimeout(timer);
-  },[]);
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   },5000);
+  //   return () => clearTimeout(timer);
+  // },[]);
 
   return (
     <div className="mainbar">
@@ -92,18 +92,9 @@ export function NavBar() {
           ) : null}
         </li>
       </ul>
-      {loading ? (
-          <div className="loader">
-            <ColorRing
-                visible={true}
-                height="200"
-                width="200"
-                ariaLabel="color-ring-loading"
-                wrapperStyle={{}}
-                wrapperClass="color-ring-wrapper"
-                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}/>
-          </div>
-    ):(
+      <div className="loader">
+        <Loader />
+      </div>
       <>
       <div className="range">
         <DateeRange onDateRangeChange={handleDateRangeChange} />
@@ -142,7 +133,6 @@ export function NavBar() {
         </div>
         </div>
         </>
-    )}
     <div className="footer">
       <Footer />
     </div>
