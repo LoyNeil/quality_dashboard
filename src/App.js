@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
+import { NavBar } from './Navbar';
+import { LoadingProfile } from './LoaderContext.js';
 
 export default function App() {
   return (
-    <div>
-      <h1>Quality Dashboard</h1>
-    </div>
+      <div>
+        <LoadingProfile>
+          <h1>Quality Dashboard</h1>
+          <NavBar />
+        </LoadingProfile>
+      </div>
   );
 }
