@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import './AuditTable.css';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community'; 
 import dayjs from 'dayjs';
+import { useLoader } from './LoaderContext.js';
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -12,10 +13,14 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 export function AuditTable({selectedCategory, selectedDateRange}) {
   const [rowData, setRowData] = useState([]);
 
+  const { toggleLoading } = useLoader();
+
   // Fetch data from the backend when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (!selectedDateRange || selectedDateRange[0] === selectedDateRange[1]) return;
+        toggleLoading(true);
         const response = await fetch('https://quality-dashboard.onrender.com/getAuditData',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
@@ -28,11 +33,15 @@ export function AuditTable({selectedCategory, selectedDateRange}) {
         setRowData(data.rowData); // Update state with the fetched data
       } catch (error) {
         console.error('Error fetching audit data:', error);
+      } finally {
+        toggleLoading(false);
       }
     };
 
-    fetchData();
-  }, [selectedCategory,selectedDateRange]);
+    if (selectedDateRange[0] && selectedDateRange[1] && selectedDateRange[0] !== selectedDateRange[1]) {
+      fetchData();
+    }
+  }, [selectedCategory,selectedDateRange,toggleLoading]);
 
   const colDefs = useMemo(() => [
     { field: 'AgentName', headerName: 'Agent Name' },
