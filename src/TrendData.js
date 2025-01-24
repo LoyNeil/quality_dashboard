@@ -3,19 +3,15 @@ import ReactECharts from 'echarts-for-react';
 import './TrendData.css';
 import { useState,useEffect } from 'react';
 import dayjs from 'dayjs';
-import { useLoader } from './LoaderContext.js';
 
 export function TrendData({selectedCategory,selectedDateRange}) {
 
   const [trendData, setTrendData] = useState([]);
 
-  const { toggleLoading } = useLoader();
 
   useEffect(()=>{
     const fetchedData = async()=>{
       try {
-        if (!selectedDateRange || selectedDateRange[0] === selectedDateRange[1]) return;
-        toggleLoading(true);
         const data = await fetch('https://quality-dashboard.onrender.com/getTrendData',{
           method:'POST',
           headers:{'Content-Type':'application/json'},
@@ -29,14 +25,10 @@ export function TrendData({selectedCategory,selectedDateRange}) {
         setTrendData(response_T.trendData || []);
       } catch (error) {
         console.log(error);
-      } finally {
-        toggleLoading(false);
       }
     }
-    if(selectedDateRange[0] && selectedDateRange[1] && selectedDateRange[0] !== selectedDateRange[1]){
       fetchedData();
-    }
-  },[selectedCategory,selectedDateRange,toggleLoading]);
+  },[selectedCategory,selectedDateRange]);
 
 
   // Prepare data for the chart
