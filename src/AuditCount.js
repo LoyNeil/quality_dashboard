@@ -15,7 +15,7 @@ export function AuditCount({selectedCategory, selectedDateRange}) {
       try {
         if (!selectedDateRange || selectedDateRange[0] === selectedDateRange[1]) return;
         toggleLoading(true);
-        const response = await fetch('http://localhost:5000/getAuditCount', {
+        const response = await fetch('https://quality-dashboard.onrender.com/getAuditCount', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
